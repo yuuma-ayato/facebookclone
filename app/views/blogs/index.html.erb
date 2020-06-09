@@ -1,10 +1,12 @@
 <header class="header">投稿一覧</header>
 <p><%= notice %></p>
+
 <div class="topic">
   <ul>
     <li class="col-md-12"><%= link_to '新しく投稿する', new_blog_path %></li>
   </ul>
 </div>
+
   <% @blogs.each do |blog| %>
   <article>
     <div class="contents">
@@ -15,6 +17,7 @@
           <p>ー内容ー</p>
         <p><%= blog.content %></p>
         <%= image_tag(blog.image.url) %>
+        <p><%= blog.user.name %></p>
         <br>
         <p><%= link_to '詳細を確認する', blog_path(blog.id) %></p>
         <p><%= link_to "編集する", edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %></p>
